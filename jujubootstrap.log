@@ -1,0 +1,500 @@
+19:50:43 INFO  juju.cmd supercommand.go:57 running juju [2.6.9 gc go1.10.4]
+19:50:43 DEBUG juju.cmd supercommand.go:58   args: []string{"/snap/juju/9102/bin/juju", "bootstrap", "localhost", "--debug"}
+19:50:43 DEBUG juju.container.lxd connection.go:170 using LXD snap socket: "/var/snap/lxd/common/lxd"
+19:50:43 INFO  cmd cloudcredential.go:47 updating credential store
+19:50:43 DEBUG juju.cmd.juju.commands bootstrap.go:1038 authenticating with region "" and credential "localhost" ()
+19:50:43 DEBUG juju.cmd.juju.commands bootstrap.go:1166 provider attrs: map[]
+19:50:43 INFO  cmd authkeys.go:114 Adding contents of "/home/admish/.local/share/juju/ssh/juju_id_rsa.pub" to authorized-keys
+19:50:43 DEBUG juju.cmd.juju.commands bootstrap.go:1225 preparing controller with config: map[name:controller default-series:bionic juju-https-proxy: test-mode:false max-action-results-size:5G enable-os-refresh-update:true max-status-history-age:336h logforward-enabled:false juju-no-proxy:127.0.0.1,localhost,::1 container-networking-method: max-action-results-age:336h firewall-mode:instance container-inherit-properties: https-proxy: type:lxd cloudinit-userdata: disable-network-management:false backup-dir: update-status-hook-interval:5m agent-metadata-url: proxy-ssh:false container-image-stream:released logging-config: snap-store-assertions: image-metadata-url: fan-config: juju-ftp-proxy: resource-tags: apt-ftp-proxy: apt-http-proxy: image-stream:released uuid:f6854164-e2c4-47bc-853c-216e127838e4 egress-subnets: max-status-history-size:5G provisioner-harvest-mode:destroyed juju-http-proxy: agent-stream:released enable-os-upgrade:true authorized-keys:ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDcVjoh6qcdieqsfd/gYUI+6dn/FbxfwYumofKxOg665SnEi3kfm+pV1jMHf9OYDLZxMlkOW/r+wZh2jIoCaZnIv22dhPqIBjW5Z2wYmSxetJD4CnVOq6TCYEcr320br5VGWRfqznLv0s41B/lG5Rh0A9iGP3jl3MGbC55YnviNsYmj8d52RtMzNIvhA8obhmVsrBX23jLU7llyO3M9MA+iB5hvD5VMSGH2Xs1TJ9XcuVXZMzRlb9BjxaLmLMthB1DQOH7ok7XK4I258FX7LYmmnaTFOy9BpR+MSTV1ABrvAGPNnWwvhD2YEu960WBkz++SEqr7sloseAKIGlnDmcjZ juju-client-key
+ transmit-vendor-metrics:true apt-no-proxy: ignore-machine-addresses:false automatically-retry-hooks:true snap-https-proxy: net-bond-reconfigure-delay:17 apt-mirror: container-image-metadata-url: snap-store-proxy-url: apt-https-proxy: http-proxy: ftp-proxy: development:false no-proxy:127.0.0.1,localhost,::1 snap-http-proxy: snap-store-proxy: ssl-hostname-verification:true]
+19:50:43 INFO  cmd bootstrap.go:677 Creating Juju controller "localhost-default" on localhost/default
+19:50:43 INFO  juju.cmd.juju.commands bootstrap.go:746 combined bootstrap constraints: 
+19:50:43 DEBUG juju.environs.bootstrap bootstrap.go:262 model "controller" supports application/machine networks: false
+19:50:43 DEBUG juju.environs.bootstrap bootstrap.go:264 network management by juju enabled: true
+19:50:43 INFO  cmd bootstrap.go:296 Loading image metadata
+19:50:43 INFO  cmd bootstrap.go:373 Looking for packaged Juju agent version 2.6.9 for amd64
+19:50:43 INFO  juju.environs.bootstrap tools.go:72 looking for bootstrap agent binaries: version=2.6.9
+19:50:43 DEBUG juju.environs.tools tools.go:102 finding agent binaries in stream: "released"
+19:50:43 DEBUG juju.environs.tools tools.go:104 reading agent binaries with major.minor version 2.6
+19:50:43 DEBUG juju.environs.tools tools.go:112 filtering agent binaries by version: 2.6.9
+19:50:43 DEBUG juju.environs.tools tools.go:118 filtering agent binaries by architecture: amd64
+19:50:43 DEBUG juju.environs.tools urls.go:116 trying datasource "keystone catalog"
+19:50:44 DEBUG juju.environs.simplestreams simplestreams.go:683 using default candidate for content id "com.ubuntu.juju:released:tools" are {20161007 mirrors:1.0 content-download streams/v1/cpc-mirrors.sjson []}
+19:50:46 INFO  juju.environs.bootstrap tools.go:74 found 17 packaged agent binaries
+19:50:46 INFO  cmd bootstrap.go:467 Starting new instance for initial controller
+19:50:46 INFO  cmd environ.go:172 To configure your system to better support LXD containers, please see: https://github.com/lxc/lxd/blob/master/doc/production-setup.md
+19:50:47 INFO  cmd bootstrap.go:161 Launching controller instance(s) on localhost/default...
+19:50:47 DEBUG juju.provider.lxd environ_broker.go:37 StartInstance: "0", bionic
+19:50:47 DEBUG juju.cloudconfig.instancecfg instancecfg.go:956 Setting numa ctl preference to false
+19:50:47 DEBUG juju.environs imagemetadata.go:112 obtained image datasource "default cloud images"
+19:50:47 DEBUG juju.environs imagemetadata.go:112 obtained image datasource "default ubuntu cloud images"
+19:50:47 DEBUG juju.container.lxd connection.go:187 LXD requires https://, using: https://cloud-images.ubuntu.com/releases/
+ - acquiring LXD image19:50:47 DEBUG juju.container.lxd image.go:56 Found image locally - "ubuntu-18.04-server-cloudimg-amd64-lxd.tar.xz" "4a89a29d4db20988ee3f0bcec5e054d1cde3d4255d2129208ef87d35cff8b464"
+                      19:50:47 DEBUG juju.service discovery.go:64 discovered init system "systemd" from series "bionic"
+19:50:47 DEBUG juju.provider.lxd environ_broker.go:222 LXD user data; 3568 bytes
+ - Creating container19:50:47 INFO  juju.container.lxd container.go:219 starting new container "juju-7838e4-0" (image "ubuntu-18.04-server-cloudimg-amd64-lxd.tar.xz")
+19:50:47 DEBUG juju.container.lxd container.go:220 new container has profiles [default juju-controller]
+19:50:50 DEBUG juju.container.lxd container.go:247 created container "juju-7838e4-0", waiting for start...
+ - Container started                      19:50:51 INFO  juju.provider.lxd environ_broker.go:52 started instance "juju-7838e4-0"
+19:50:51 INFO  cmd bootstrap.go:235  - juju-7838e4-0 (arch=amd64)          
+19:50:51 INFO  juju.environs.bootstrap bootstrap.go:805 newest version: 2.6.9
+19:50:51 INFO  juju.environs.bootstrap bootstrap.go:820 picked bootstrap agent binary version: 2.6.9
+19:50:51 INFO  cmd bootstrap.go:509 Installing Juju agent on bootstrap instance
+19:50:53 INFO  cmd bootstrap.go:626 Fetching Juju GUI 2.15.0
+19:50:53 DEBUG juju.cloudconfig.instancecfg instancecfg.go:956 Setting numa ctl preference to false
+Waiting for address
+Attempting to connect to 10.208.133.203:22
+19:50:53 DEBUG juju.provider.common bootstrap.go:576 connection attempt for 10.208.133.203 failed: ssh: connect to host 10.208.133.203 port 22: Connection refused
+19:50:58 DEBUG juju.provider.common bootstrap.go:576 connection attempt for 10.208.133.203 failed: /var/lib/juju/nonce.txt does not exist
+19:51:04 INFO  cmd bootstrap.go:345 Connected to 10.208.133.203
+19:51:04 INFO  juju.cloudconfig userdatacfg_unix.go:537 Fetching agent: curl -sSfw 'agent binaries from %{url_effective} downloaded: HTTP %{http_code}; time %{time_total}s; size %{size_download} bytes; speed %{speed_download} bytes/s ' --retry 10 -o $bin/tools.tar.gz <[https://streams.canonical.com/juju/tools/agent/2.6.9/juju-2.6.9-ubuntu-amd64.tgz]>
+19:51:04 INFO  cmd bootstrap.go:415 Running machine configuration script...
+Cloud-init v. 19.2-36-g059d049c-0ubuntu2~18.04.1 running 'init-local' at Wed, 16 Oct 2019 23:50:52 +0000. Up 1.08 seconds.
+Cloud-init v. 19.2-36-g059d049c-0ubuntu2~18.04.1 running 'init' at Wed, 16 Oct 2019 23:50:53 +0000. Up 2.00 seconds.
+ci-info: ++++++++++++++++++++++++++++++++++++++Net device info+++++++++++++++++++++++++++++++++++++++
+ci-info: +--------+------+-----------------------------+---------------+--------+-------------------+
+ci-info: | Device |  Up  |           Address           |      Mask     | Scope  |     Hw-Address    |
+ci-info: +--------+------+-----------------------------+---------------+--------+-------------------+
+ci-info: |  eth0  | True |        10.208.133.203       | 255.255.255.0 | global | 00:16:3e:69:8d:d5 |
+ci-info: |  eth0  | True | fe80::216:3eff:fe69:8dd5/64 |       .       |  link  | 00:16:3e:69:8d:d5 |
+ci-info: |   lo   | True |          127.0.0.1          |   255.0.0.0   |  host  |         .         |
+ci-info: |   lo   | True |           ::1/128           |       .       |  host  |         .         |
+ci-info: +--------+------+-----------------------------+---------------+--------+-------------------+
+ci-info: +++++++++++++++++++++++++++++++Route IPv4 info+++++++++++++++++++++++++++++++
+ci-info: +-------+--------------+--------------+-----------------+-----------+-------+
+ci-info: | Route | Destination  |   Gateway    |     Genmask     | Interface | Flags |
+ci-info: +-------+--------------+--------------+-----------------+-----------+-------+
+ci-info: |   0   |   0.0.0.0    | 10.208.133.1 |     0.0.0.0     |    eth0   |   UG  |
+ci-info: |   1   | 10.208.133.0 |   0.0.0.0    |  255.255.255.0  |    eth0   |   U   |
+ci-info: |   2   | 10.208.133.1 |   0.0.0.0    | 255.255.255.255 |    eth0   |   UH  |
+ci-info: +-------+--------------+--------------+-----------------+-----------+-------+
+ci-info: +++++++++++++++++++Route IPv6 info+++++++++++++++++++
+ci-info: +-------+-------------+---------+-----------+-------+
+ci-info: | Route | Destination | Gateway | Interface | Flags |
+ci-info: +-------+-------------+---------+-----------+-------+
+ci-info: |   0   |  fe80::/64  |    ::   |    eth0   |   U   |
+ci-info: |   2   |    local    |    ::   |    eth0   |   U   |
+ci-info: |   3   |   ff00::/8  |    ::   |    eth0   |   U   |
+ci-info: +-------+-------------+---------+-----------+-------+
+Cloud-init v. 19.2-36-g059d049c-0ubuntu2~18.04.1 running 'modules:config' at Wed, 16 Oct 2019 23:50:56 +0000. Up 4.80 seconds.
++ install -D -m 644 /dev/null /etc/systemd/system/juju-clean-shutdown.service
++ printf %s\n 
+[Unit]
+Description=Stop all network interfaces on shutdown
+DefaultDependencies=false
+After=final.target
+
+[Service]
+Type=oneshot
+ExecStart=/sbin/ifdown -a -v --force
+StandardOutput=tty
+StandardError=tty
+
+[Install]
+WantedBy=final.target
+
++ /bin/systemctl enable /etc/systemd/system/juju-clean-shutdown.service
+Created symlink /etc/systemd/system/final.target.wants/juju-clean-shutdown.service → /etc/systemd/system/juju-clean-shutdown.service.
++ install -D -m 644 /dev/null /var/lib/juju/nonce.txt
++ printf %s\n user-admin:bootstrap
+Cloud-init v. 19.2-36-g059d049c-0ubuntu2~18.04.1 running 'modules:final' at Wed, 16 Oct 2019 23:50:58 +0000. Up 7.71 seconds.
+Cloud-init v. 19.2-36-g059d049c-0ubuntu2~18.04.1 finished at Wed, 16 Oct 2019 23:50:59 +0000. Datasource DataSourceNoCloud [seed=/var/lib/cloud/seed/nocloud-net][dsmode=net].  Up 7.98 seconds
+Logging to /var/log/cloud-init-output.log on the bootstrap machine
+Regenerating SSH RSA host key
+Generating public/private rsa key pair.
+Your identification has been saved in /etc/ssh/ssh_host_rsa_key.
+Your public key has been saved in /etc/ssh/ssh_host_rsa_key.pub.
+The key fingerprint is:
+SHA256:ipaEFkgN9U6FAXUQzDoeuYuAcIafIqpLHcK5tJ24q24 root@juju-7838e4-0
+The key's randomart image is:
++---[RSA 2048]----+
+| o+o===o         |
+|.. ..+o          |
+|... oo           |
+|+ +Bo            |
+|oO+o=.  S        |
+|*.X+oo .         |
+|+*.+= .          |
+|oE.o             |
+|O=.              |
++----[SHA256]-----+
+Generating public/private dsa key pair.
+Your identification has been saved in /etc/ssh/ssh_host_dsa_key.
+Your public key has been saved in /etc/ssh/ssh_host_dsa_key.pub.
+The key fingerprint is:
+SHA256:4oXUdi9UXyyyFZE5eG3uIz3OD12eyCubcnpQ9ckdyqA root@juju-7838e4-0
+The key's randomart image is:
++---[DSA 1024]----+
+|            ..oB.|
+|       .   oooBo+|
+|      . o + +===+|
+|     . o E o.o +o|
+|      o S o . ...|
+|     . o . ....*+|
+|      .   .  o=.=|
+|         . +. .+ |
+|         .=oo.  o|
++----[SHA256]-----+
+Generating public/private ecdsa key pair.
+Your identification has been saved in /etc/ssh/ssh_host_ecdsa_key.
+Your public key has been saved in /etc/ssh/ssh_host_ecdsa_key.pub.
+The key fingerprint is:
+SHA256:zp+3jcV/aGesd2gC7PvdPQC2zu3DPvdL+7xyiI1hbDE root@juju-7838e4-0
+The key's randomart image is:
++---[ECDSA 256]---+
+|                 |
+|                 |
+|                 |
+|           E     |
+|        S.o =    |
+|       o  o* o   |
+|        o.=.B == |
+|         ..*o&*BX|
+|          ++*BXO/|
++----[SHA256]-----+
+Running apt-get update
+Get:1 http://security.ubuntu.com/ubuntu bionic-security InRelease [88.7 kB]
+Hit:2 http://archive.ubuntu.com/ubuntu bionic InRelease
+Get:3 http://archive.ubuntu.com/ubuntu bionic-updates InRelease [88.7 kB]
+Get:4 http://security.ubuntu.com/ubuntu bionic-security/main amd64 Packages [530 kB]
+Get:5 http://archive.ubuntu.com/ubuntu bionic-backports InRelease [74.6 kB]
+Get:6 http://archive.ubuntu.com/ubuntu bionic/universe amd64 Packages [8570 kB]
+Get:7 http://security.ubuntu.com/ubuntu bionic-security/main Translation-en [178 kB]
+Get:8 http://security.ubuntu.com/ubuntu bionic-security/restricted amd64 Packages [8872 B]
+Get:9 http://security.ubuntu.com/ubuntu bionic-security/restricted Translation-en [3296 B]
+Get:10 http://security.ubuntu.com/ubuntu bionic-security/universe amd64 Packages [613 kB]
+Get:11 http://archive.ubuntu.com/ubuntu bionic/universe Translation-en [4941 kB]
+Get:12 http://security.ubuntu.com/ubuntu bionic-security/universe Translation-en [204 kB]
+Get:13 http://security.ubuntu.com/ubuntu bionic-security/multiverse amd64 Packages [5260 B]
+Get:14 http://security.ubuntu.com/ubuntu bionic-security/multiverse Translation-en [2464 B]
+Get:15 http://archive.ubuntu.com/ubuntu bionic/multiverse amd64 Packages [151 kB]
+Get:16 http://archive.ubuntu.com/ubuntu bionic/multiverse Translation-en [108 kB]
+Get:17 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 Packages [753 kB]
+Get:18 http://archive.ubuntu.com/ubuntu bionic-updates/main Translation-en [271 kB]
+Get:19 http://archive.ubuntu.com/ubuntu bionic-updates/restricted amd64 Packages [15.7 kB]
+Get:20 http://archive.ubuntu.com/ubuntu bionic-updates/restricted Translation-en [4956 B]
+Get:21 http://archive.ubuntu.com/ubuntu bionic-updates/universe amd64 Packages [1012 kB]
+Get:22 http://archive.ubuntu.com/ubuntu bionic-updates/universe Translation-en [312 kB]
+Get:23 http://archive.ubuntu.com/ubuntu bionic-updates/multiverse amd64 Packages [7884 B]
+Get:24 http://archive.ubuntu.com/ubuntu bionic-updates/multiverse Translation-en [3944 B]
+Get:25 http://archive.ubuntu.com/ubuntu bionic-backports/main amd64 Packages [2512 B]
+Get:26 http://archive.ubuntu.com/ubuntu bionic-backports/main Translation-en [1644 B]
+Get:27 http://archive.ubuntu.com/ubuntu bionic-backports/universe amd64 Packages [4020 B]
+Get:28 http://archive.ubuntu.com/ubuntu bionic-backports/universe Translation-en [1856 B]
+Fetched 18.0 MB in 12s (1489 kB/s)
+Reading package lists...
+Running apt-get upgrade
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+The following package was automatically installed and is no longer required:
+  libfreetype6
+Use 'sudo apt autoremove' to remove it.
+The following packages will be upgraded:
+  base-files libnss-systemd libpam-systemd libpython3.6 libpython3.6-minimal
+  libpython3.6-stdlib libsystemd0 libudev1 python3.6 python3.6-minimal sudo
+  systemd systemd-sysv udev
+14 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Need to get 10.4 MB of archives.
+After this operation, 9216 B of additional disk space will be used.
+Get:1 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 base-files amd64 10.1ubuntu2.7 [60.3 kB]
+Get:2 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libnss-systemd amd64 237-3ubuntu10.31 [105 kB]
+Get:3 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libsystemd0 amd64 237-3ubuntu10.31 [204 kB]
+Get:4 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libpam-systemd amd64 237-3ubuntu10.31 [108 kB]
+Get:5 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 systemd amd64 237-3ubuntu10.31 [2904 kB]
+Get:6 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 udev amd64 237-3ubuntu10.31 [1102 kB]
+Get:7 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libudev1 amd64 237-3ubuntu10.31 [53.9 kB]
+Get:8 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 systemd-sysv amd64 237-3ubuntu10.31 [11.7 kB]
+Get:9 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libpython3.6 amd64 3.6.8-1~18.04.3 [1415 kB]
+Get:10 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 python3.6 amd64 3.6.8-1~18.04.3 [202 kB]
+Get:11 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libpython3.6-stdlib amd64 3.6.8-1~18.04.3 [1712 kB]
+Get:12 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 python3.6-minimal amd64 3.6.8-1~18.04.3 [1610 kB]
+Get:13 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libpython3.6-minimal amd64 3.6.8-1~18.04.3 [533 kB]
+Get:14 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 sudo amd64 1.8.21p2-3ubuntu1.1 [428 kB]
+Fetched 10.4 MB in 10s (1054 kB/s)
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 28645 files and directories currently installed.)
+Preparing to unpack .../base-files_10.1ubuntu2.7_amd64.deb ...
+Warning: Stopping motd-news.service, but it can still be activated by:
+  motd-news.timer
+Unpacking base-files (10.1ubuntu2.7) over (10.1ubuntu2.6) ...
+Setting up base-files (10.1ubuntu2.7) ...
+Installing new version of config file /etc/update-motd.d/50-motd-news ...
+motd-news.service is a disabled or a static unit, not starting it.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 28645 files and directories currently installed.)
+Preparing to unpack .../libnss-systemd_237-3ubuntu10.31_amd64.deb ...
+Unpacking libnss-systemd:amd64 (237-3ubuntu10.31) over (237-3ubuntu10.29) ...
+Preparing to unpack .../libsystemd0_237-3ubuntu10.31_amd64.deb ...
+Unpacking libsystemd0:amd64 (237-3ubuntu10.31) over (237-3ubuntu10.29) ...
+Setting up libsystemd0:amd64 (237-3ubuntu10.31) ...
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 28645 files and directories currently installed.)
+Preparing to unpack .../libpam-systemd_237-3ubuntu10.31_amd64.deb ...
+Unpacking libpam-systemd:amd64 (237-3ubuntu10.31) over (237-3ubuntu10.29) ...
+Preparing to unpack .../systemd_237-3ubuntu10.31_amd64.deb ...
+Unpacking systemd (237-3ubuntu10.31) over (237-3ubuntu10.29) ...
+Preparing to unpack .../udev_237-3ubuntu10.31_amd64.deb ...
+Unpacking udev (237-3ubuntu10.31) over (237-3ubuntu10.29) ...
+Preparing to unpack .../libudev1_237-3ubuntu10.31_amd64.deb ...
+Unpacking libudev1:amd64 (237-3ubuntu10.31) over (237-3ubuntu10.29) ...
+Setting up libudev1:amd64 (237-3ubuntu10.31) ...
+Setting up systemd (237-3ubuntu10.31) ...
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 28645 files and directories currently installed.)
+Preparing to unpack .../0-systemd-sysv_237-3ubuntu10.31_amd64.deb ...
+Unpacking systemd-sysv (237-3ubuntu10.31) over (237-3ubuntu10.29) ...
+Preparing to unpack .../1-libpython3.6_3.6.8-1~18.04.3_amd64.deb ...
+Unpacking libpython3.6:amd64 (3.6.8-1~18.04.3) over (3.6.8-1~18.04.2) ...
+Preparing to unpack .../2-python3.6_3.6.8-1~18.04.3_amd64.deb ...
+Unpacking python3.6 (3.6.8-1~18.04.3) over (3.6.8-1~18.04.2) ...
+Preparing to unpack .../3-libpython3.6-stdlib_3.6.8-1~18.04.3_amd64.deb ...
+Unpacking libpython3.6-stdlib:amd64 (3.6.8-1~18.04.3) over (3.6.8-1~18.04.2) ...
+Preparing to unpack .../4-python3.6-minimal_3.6.8-1~18.04.3_amd64.deb ...
+Unpacking python3.6-minimal (3.6.8-1~18.04.3) over (3.6.8-1~18.04.2) ...
+Preparing to unpack .../5-libpython3.6-minimal_3.6.8-1~18.04.3_amd64.deb ...
+Unpacking libpython3.6-minimal:amd64 (3.6.8-1~18.04.3) over (3.6.8-1~18.04.2) ...
+Preparing to unpack .../6-sudo_1.8.21p2-3ubuntu1.1_amd64.deb ...
+Unpacking sudo (1.8.21p2-3ubuntu1.1) over (1.8.21p2-3ubuntu1) ...
+Setting up libnss-systemd:amd64 (237-3ubuntu10.31) ...
+Setting up sudo (1.8.21p2-3ubuntu1.1) ...
+Setting up systemd-sysv (237-3ubuntu10.31) ...
+Setting up libpython3.6-minimal:amd64 (3.6.8-1~18.04.3) ...
+Setting up udev (237-3ubuntu10.31) ...
+update-initramfs: deferring update (trigger activated)
+Setting up libpython3.6-stdlib:amd64 (3.6.8-1~18.04.3) ...
+Setting up libpam-systemd:amd64 (237-3ubuntu10.31) ...
+Setting up python3.6-minimal (3.6.8-1~18.04.3) ...
+Setting up libpython3.6:amd64 (3.6.8-1~18.04.3) ...
+Setting up python3.6 (3.6.8-1~18.04.3) ...
+Processing triggers for ureadahead (0.100.0-21) ...
+Processing triggers for install-info (6.5.0.dfsg.1-2) ...
+Processing triggers for plymouth-theme-ubuntu-text (0.9.3-1ubuntu7.18.04.2) ...
+update-initramfs: deferring update (trigger activated)
+Processing triggers for libc-bin (2.27-3ubuntu1) ...
+Processing triggers for man-db (2.8.3-2ubuntu0.1) ...
+Processing triggers for dbus (1.12.2-1ubuntu1.1) ...
+Processing triggers for mime-support (3.60ubuntu1) ...
+Processing triggers for initramfs-tools (0.130ubuntu3.8) ...
+Installing curl, cpu-checker, bridge-utils, cloud-utils, tmux, ubuntu-fan
+Reading package lists...
+Building dependency tree...
+Reading state information...
+curl is already the newest version (7.58.0-2ubuntu3.8).
+curl set to manually installed.
+The following package was automatically installed and is no longer required:
+  libfreetype6
+Use 'sudo apt autoremove' to remove it.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following package was automatically installed and is no longer required:
+  libfreetype6
+Use 'sudo apt autoremove' to remove it.
+The following additional packages will be installed:
+  msr-tools
+The following NEW packages will be installed:
+  cpu-checker msr-tools
+0 upgraded, 2 newly installed, 0 to remove and 0 not upgraded.
+Need to get 16.6 kB of archives.
+After this operation, 62.5 kB of additional disk space will be used.
+Get:1 http://archive.ubuntu.com/ubuntu bionic/main amd64 msr-tools amd64 1.3-2build1 [9760 B]
+Get:2 http://archive.ubuntu.com/ubuntu bionic/main amd64 cpu-checker amd64 0.7-0ubuntu7 [6862 B]
+Fetched 16.6 kB in 0s (37.4 kB/s)
+Selecting previously unselected package msr-tools.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 28645 files and directories currently installed.)
+Preparing to unpack .../msr-tools_1.3-2build1_amd64.deb ...
+Unpacking msr-tools (1.3-2build1) ...
+Selecting previously unselected package cpu-checker.
+Preparing to unpack .../cpu-checker_0.7-0ubuntu7_amd64.deb ...
+Unpacking cpu-checker (0.7-0ubuntu7) ...
+Setting up msr-tools (1.3-2build1) ...
+Setting up cpu-checker (0.7-0ubuntu7) ...
+Processing triggers for man-db (2.8.3-2ubuntu0.1) ...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following package was automatically installed and is no longer required:
+  libfreetype6
+Use 'sudo apt autoremove' to remove it.
+Suggested packages:
+  ifupdown
+The following NEW packages will be installed:
+  bridge-utils
+0 upgraded, 1 newly installed, 0 to remove and 0 not upgraded.
+Need to get 30.1 kB of archives.
+After this operation, 102 kB of additional disk space will be used.
+Get:1 http://archive.ubuntu.com/ubuntu bionic/main amd64 bridge-utils amd64 1.5-15ubuntu1 [30.1 kB]
+Fetched 30.1 kB in 0s (100 kB/s)
+Selecting previously unselected package bridge-utils.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 28659 files and directories currently installed.)
+Preparing to unpack .../bridge-utils_1.5-15ubuntu1_amd64.deb ...
+Unpacking bridge-utils (1.5-15ubuntu1) ...
+Setting up bridge-utils (1.5-15ubuntu1) ...
+Processing triggers for man-db (2.8.3-2ubuntu0.1) ...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following package was automatically installed and is no longer required:
+  libfreetype6
+Use 'sudo apt autoremove' to remove it.
+The following additional packages will be installed:
+  cloud-image-utils distro-info genisoimage ibverbs-providers libaio1
+  libibverbs1 libiscsi7 libnl-3-200 libnl-route-3-200 libnspr4 libnss3
+  librados2 librbd1 qemu-block-extra qemu-utils sharutils
+Suggested packages:
+  cloud-utils-euca mtools shunit2 wodim cdrkit-doc debootstrap sharutils-doc
+  bsd-mailx | mailx
+The following NEW packages will be installed:
+  cloud-image-utils cloud-utils distro-info genisoimage ibverbs-providers
+  libaio1 libibverbs1 libiscsi7 libnl-3-200 libnl-route-3-200 libnspr4 libnss3
+  librados2 librbd1 qemu-block-extra qemu-utils sharutils
+0 upgraded, 17 newly installed, 0 to remove and 0 not upgraded.
+Need to get 6765 kB of archives.
+After this operation, 29.6 MB of additional disk space will be used.
+Get:1 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 distro-info amd64 0.18ubuntu0.18.04.1 [19.9 kB]
+Get:2 http://archive.ubuntu.com/ubuntu bionic/main amd64 genisoimage amd64 9:1.1.11-3ubuntu2 [328 kB]
+Get:3 http://archive.ubuntu.com/ubuntu bionic/main amd64 libnl-3-200 amd64 3.2.29-0ubuntu3 [52.8 kB]
+Get:4 http://archive.ubuntu.com/ubuntu bionic/main amd64 libnl-route-3-200 amd64 3.2.29-0ubuntu3 [146 kB]
+Get:5 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libibverbs1 amd64 17.1-1ubuntu0.1 [44.5 kB]
+Get:6 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 ibverbs-providers amd64 17.1-1ubuntu0.1 [160 kB]
+Get:7 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libaio1 amd64 0.3.110-5ubuntu0.1 [6476 B]
+Get:8 http://archive.ubuntu.com/ubuntu bionic/main amd64 libiscsi7 amd64 1.17.0-1.1 [55.4 kB]
+Get:9 http://archive.ubuntu.com/ubuntu bionic/main amd64 libnspr4 amd64 2:4.18-1ubuntu1 [112 kB]
+Get:10 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libnss3 amd64 2:3.35-2ubuntu2.3 [1136 kB]
+Get:11 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 librados2 amd64 12.2.12-0ubuntu0.18.04.3 [2702 kB]
+Get:12 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 librbd1 amd64 12.2.12-0ubuntu0.18.04.3 [920 kB]
+Get:13 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 qemu-block-extra amd64 1:2.11+dfsg-1ubuntu7.19 [39.5 kB]
+Get:14 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 qemu-utils amd64 1:2.11+dfsg-1ubuntu7.19 [869 kB]
+Get:15 http://archive.ubuntu.com/ubuntu bionic/main amd64 sharutils amd64 1:4.15.2-3 [155 kB]
+Get:16 http://archive.ubuntu.com/ubuntu bionic/main amd64 cloud-image-utils all 0.30-0ubuntu5 [16.9 kB]
+Get:17 http://archive.ubuntu.com/ubuntu bionic/main amd64 cloud-utils all 0.30-0ubuntu5 [1596 B]
+Fetched 6765 kB in 9s (727 kB/s)
+Selecting previously unselected package distro-info.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 28687 files and directories currently installed.)
+Preparing to unpack .../00-distro-info_0.18ubuntu0.18.04.1_amd64.deb ...
+Unpacking distro-info (0.18ubuntu0.18.04.1) ...
+Selecting previously unselected package genisoimage.
+Preparing to unpack .../01-genisoimage_9%3a1.1.11-3ubuntu2_amd64.deb ...
+Unpacking genisoimage (9:1.1.11-3ubuntu2) ...
+Selecting previously unselected package libnl-3-200:amd64.
+Preparing to unpack .../02-libnl-3-200_3.2.29-0ubuntu3_amd64.deb ...
+Unpacking libnl-3-200:amd64 (3.2.29-0ubuntu3) ...
+Selecting previously unselected package libnl-route-3-200:amd64.
+Preparing to unpack .../03-libnl-route-3-200_3.2.29-0ubuntu3_amd64.deb ...
+Unpacking libnl-route-3-200:amd64 (3.2.29-0ubuntu3) ...
+Selecting previously unselected package libibverbs1:amd64.
+Preparing to unpack .../04-libibverbs1_17.1-1ubuntu0.1_amd64.deb ...
+Unpacking libibverbs1:amd64 (17.1-1ubuntu0.1) ...
+Selecting previously unselected package ibverbs-providers:amd64.
+Preparing to unpack .../05-ibverbs-providers_17.1-1ubuntu0.1_amd64.deb ...
+Unpacking ibverbs-providers:amd64 (17.1-1ubuntu0.1) ...
+Selecting previously unselected package libaio1:amd64.
+Preparing to unpack .../06-libaio1_0.3.110-5ubuntu0.1_amd64.deb ...
+Unpacking libaio1:amd64 (0.3.110-5ubuntu0.1) ...
+Selecting previously unselected package libiscsi7:amd64.
+Preparing to unpack .../07-libiscsi7_1.17.0-1.1_amd64.deb ...
+Unpacking libiscsi7:amd64 (1.17.0-1.1) ...
+Selecting previously unselected package libnspr4:amd64.
+Preparing to unpack .../08-libnspr4_2%3a4.18-1ubuntu1_amd64.deb ...
+Unpacking libnspr4:amd64 (2:4.18-1ubuntu1) ...
+Selecting previously unselected package libnss3:amd64.
+Preparing to unpack .../09-libnss3_2%3a3.35-2ubuntu2.3_amd64.deb ...
+Unpacking libnss3:amd64 (2:3.35-2ubuntu2.3) ...
+Selecting previously unselected package librados2.
+Preparing to unpack .../10-librados2_12.2.12-0ubuntu0.18.04.3_amd64.deb ...
+Unpacking librados2 (12.2.12-0ubuntu0.18.04.3) ...
+Selecting previously unselected package librbd1.
+Preparing to unpack .../11-librbd1_12.2.12-0ubuntu0.18.04.3_amd64.deb ...
+Unpacking librbd1 (12.2.12-0ubuntu0.18.04.3) ...
+Selecting previously unselected package qemu-block-extra:amd64.
+Preparing to unpack .../12-qemu-block-extra_1%3a2.11+dfsg-1ubuntu7.19_amd64.deb ...
+Unpacking qemu-block-extra:amd64 (1:2.11+dfsg-1ubuntu7.19) ...
+Selecting previously unselected package qemu-utils.
+Preparing to unpack .../13-qemu-utils_1%3a2.11+dfsg-1ubuntu7.19_amd64.deb ...
+Unpacking qemu-utils (1:2.11+dfsg-1ubuntu7.19) ...
+Selecting previously unselected package sharutils.
+Preparing to unpack .../14-sharutils_1%3a4.15.2-3_amd64.deb ...
+Unpacking sharutils (1:4.15.2-3) ...
+Selecting previously unselected package cloud-image-utils.
+Preparing to unpack .../15-cloud-image-utils_0.30-0ubuntu5_all.deb ...
+Unpacking cloud-image-utils (0.30-0ubuntu5) ...
+Selecting previously unselected package cloud-utils.
+Preparing to unpack .../16-cloud-utils_0.30-0ubuntu5_all.deb ...
+Unpacking cloud-utils (0.30-0ubuntu5) ...
+Setting up distro-info (0.18ubuntu0.18.04.1) ...
+Setting up sharutils (1:4.15.2-3) ...
+Setting up libiscsi7:amd64 (1.17.0-1.1) ...
+Setting up genisoimage (9:1.1.11-3ubuntu2) ...
+Setting up libnspr4:amd64 (2:4.18-1ubuntu1) ...
+Setting up libaio1:amd64 (0.3.110-5ubuntu0.1) ...
+Setting up libnl-3-200:amd64 (3.2.29-0ubuntu3) ...
+Setting up libnss3:amd64 (2:3.35-2ubuntu2.3) ...
+Setting up libnl-route-3-200:amd64 (3.2.29-0ubuntu3) ...
+Setting up libibverbs1:amd64 (17.1-1ubuntu0.1) ...
+Setting up librados2 (12.2.12-0ubuntu0.18.04.3) ...
+Setting up ibverbs-providers:amd64 (17.1-1ubuntu0.1) ...
+Setting up librbd1 (12.2.12-0ubuntu0.18.04.3) ...
+Setting up qemu-block-extra:amd64 (1:2.11+dfsg-1ubuntu7.19) ...
+Setting up qemu-utils (1:2.11+dfsg-1ubuntu7.19) ...
+Setting up cloud-image-utils (0.30-0ubuntu5) ...
+Setting up cloud-utils (0.30-0ubuntu5) ...
+Processing triggers for libc-bin (2.27-3ubuntu1) ...
+Processing triggers for man-db (2.8.3-2ubuntu0.1) ...
+Processing triggers for install-info (6.5.0.dfsg.1-2) ...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+tmux is already the newest version (2.6-3ubuntu0.2).
+tmux set to manually installed.
+The following package was automatically installed and is no longer required:
+  libfreetype6
+Use 'sudo apt autoremove' to remove it.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following package was automatically installed and is no longer required:
+  libfreetype6
+Use 'sudo apt autoremove' to remove it.
+The following NEW packages will be installed:
+  ubuntu-fan
+0 upgraded, 1 newly installed, 0 to remove and 0 not upgraded.
+Need to get 34.7 kB of archives.
+After this operation, 150 kB of additional disk space will be used.
+Get:1 http://archive.ubuntu.com/ubuntu bionic/main amd64 ubuntu-fan all 0.12.10 [34.7 kB]
+Fetched 34.7 kB in 0s (115 kB/s)
+Selecting previously unselected package ubuntu-fan.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 28886 files and directories currently installed.)
+Preparing to unpack .../ubuntu-fan_0.12.10_all.deb ...
+Unpacking ubuntu-fan (0.12.10) ...
+Setting up ubuntu-fan (0.12.10) ...
+Created symlink /etc/systemd/system/multi-user.target.wants/ubuntu-fan.service → /lib/systemd/system/ubuntu-fan.service.
+Processing triggers for man-db (2.8.3-2ubuntu0.1) ...
+Processing triggers for ureadahead (0.100.0-21) ...
+Processing triggers for systemd (237-3ubuntu10.31) ...
+Fetching Juju agent version 2.6.9 for amd64
+Attempt 1 to download agent binaries from https://streams.canonical.com/juju/tools/agent/2.6.9/juju-2.6.9-ubuntu-amd64.tgz...
+agent binaries from https://streams.canonical.com/juju/tools/agent/2.6.9/juju-2.6.9-ubuntu-amd64.tgz downloaded: HTTP 200; time 11.086145s; size 30620396 bytes; speed 2762077.000 bytes/s Agent binaries downloaded successfully.
+d379f92899c8c4332c3ff43500189a4a0df8774dbfc1604bda0e1b9c58826cb4  /var/lib/juju/tools/2.6.9-bionic-amd64/tools.tar.gz
+ea1d5a41c36521c315b60442cbdfb2cbd0703df926d089f721b30c857c6344a4  /var/lib/juju/gui/gui.tar.bz2
+Installing Juju machine agent
+2019-10-16 23:52:17 INFO juju.cmd supercommand.go:57 running jujud [2.6.9 gc go1.11.13]
+2019-10-16 23:52:17 DEBUG juju.cmd supercommand.go:58   args: []string{"/var/lib/juju/tools/2.6.9-bionic-amd64/jujud", "bootstrap-state", "--timeout", "20m0s", "--data-dir", "/var/lib/juju", "--debug", "/var/lib/juju/bootstrap-params"}
+2019-10-16 23:52:17 DEBUG juju.agent agent.go:545 read agent config, format "2.0"
+ERROR Get https://10.208.133.1:8443/1.0: Unable to connect to: 10.208.133.1:8443
+2019-10-16 23:52:37 DEBUG cmd supercommand.go:496 error stack: 
+Get https://10.208.133.1:8443/1.0: Unable to connect to: 10.208.133.1:8443
+/workspace/_build/src/github.com/juju/juju/container/lxd/server.go:96: 
+/workspace/_build/src/github.com/juju/juju/provider/lxd/server.go:204: 
+/workspace/_build/src/github.com/juju/juju/provider/lxd/environ.go:138: 
+/workspace/_build/src/github.com/juju/juju/provider/lxd/environ.go:80: 
+/workspace/_build/src/github.com/juju/juju/provider/lxd/provider.go:149: 
+/workspace/_build/src/github.com/juju/juju/cmd/jujud/agent/bootstrap.go:209: 
+2019-10-16 23:52:37 DEBUG juju.cmd.jujud main.go:200 jujud complete, code 0, err <nil>
+19:52:37 ERROR juju.cmd.juju.commands bootstrap.go:697 failed to bootstrap model: subprocess encountered error code 1
+19:52:37 DEBUG juju.cmd.juju.commands bootstrap.go:698 (error details: [{/build/juju/parts/juju/go/src/github.com/juju/juju/cmd/juju/commands/bootstrap.go:772: failed to bootstrap model} {/build/juju/parts/juju/go/src/github.com/juju/juju/environs/bootstrap/bootstrap.go:562: } {/build/juju/parts/juju/go/src/github.com/juju/juju/environs/bootstrap/bootstrap.go:530: } {subprocess encountered error code 1}])
+19:52:37 DEBUG juju.cmd.juju.commands bootstrap.go:1332 cleaning up after failed bootstrap
+19:52:37 INFO  juju.provider.common destroy.go:21 destroying model "controller"
+19:52:37 INFO  juju.provider.common destroy.go:32 destroying instances
+19:52:39 INFO  juju.provider.common destroy.go:56 destroying storage
+19:52:39 DEBUG juju.provider.lxd environ.go:229 removing instances: []
+19:52:39 INFO  cmd supercommand.go:502 command finished
